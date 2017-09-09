@@ -1,0 +1,35 @@
+---
+driver:
+  name: ec2
+  aws_ssh_key_id: MynewEC2
+  region: us-west-1
+  availability_zone: a
+  subnet_id: subnet-e50a6abc
+  vpc-id: vpc-4914652c
+  instance_type: t2.micro
+  image_id: ami-09d2fb69
+  security_group_ids: sg-2a438f4c
+  retryable_tries: 120
+
+provisioner:
+  name: chef_zero
+
+verifier:
+  name: inspec
+
+transport:
+  ssh_key: /home/chefwsjoe/learn-chef/.chef/MynewEC2.pem
+
+platforms:
+  - name: ubuntu-16.04
+    driver_config:
+      vm_hostname: joechefnode1.example.com
+
+suites:
+  - name: default
+    run_list:
+      -
+    verifier:
+      inspec_tests:
+        - test/smoke/default
+    attributes:
