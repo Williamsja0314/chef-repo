@@ -1,3 +1,3 @@
-# learn_chef_apache2
+# Edureka training chef-repo
 
-This basic cookbook configures Apache on Ubuntu.
+Basic chef training using Ubuntu.
